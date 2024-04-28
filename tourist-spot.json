@@ -1,0 +1,52 @@
+[
+      {
+        "spot_name": "Eiffel Tower",
+        "average_cost": "$20-30",
+        "total_visitors_per_year": "7 million",
+        "travel_time": "2 hours flight from London",
+        "seasonality": "Year-round",
+        "image_url": "https://example.com/eiffel_tower.jpg"
+      },
+      {
+        "spot_name": "Colosseum",
+        "average_cost": "€12-16",
+        "total_visitors_per_year": "6.4 million",
+        "travel_time": "2.5 hours flight from London",
+        "seasonality": "Year-round",
+        "image_url": "https://example.com/colosseum.jpg"
+      },
+      {
+        "spot_name": "Sagrada Familia",
+        "average_cost": "€20-30",
+        "total_visitors_per_year": "4.5 million",
+        "travel_time": "2 hours flight from London",
+        "seasonality": "Year-round",
+        "image_url": "https://example.com/sagrada_familia.jpg"
+      },
+      {
+        "spot_name": "Acropolis of Athens",
+        "average_cost": "€20-25",
+        "total_visitors_per_year": "3 million",
+        "travel_time": "3.5 hours flight from London",
+        "seasonality": "Year-round",
+        "image_url": "https://example.com/acropolis.jpg"
+      },
+      {
+        "spot_name": "Louvre Museum",
+        "average_cost": "€17-20",
+        "total_visitors_per_year": "10.2 million",
+        "travel_time": "2 hours flight from London",
+        "seasonality": "Year-round",
+        "image_url": "https://example.com/louvre_museum.jpg"
+      },
+      {
+        "spot_name": "Neuschwanstein Castle",
+        "average_cost": "€12-15",
+        "total_visitors_per_year": "1.4 million",
+        "travel_time": "1.5 hours flight from London",
+        "seasonality": "Summer",
+        "image_url": "https://example.com/neuschwanstein_castle.jpg"
+      }
+]
+
+  
