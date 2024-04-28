@@ -10,7 +10,7 @@ app.use(express.json())
 
 
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.0sxdnca.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://wonderLoom:x9hs5cYBghZu3wbb@cluster0.0sxdnca.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -27,6 +27,7 @@ async function run() {
     await client.connect();
 
     const touristSpotsCollection = client.db("wanderLoomDB").collection("touristSpots")
+    const countriesTourCollection = client.db("wanderLoomDB").collection("countriesTour")
 
 
     app.get('/tourist-spots', async(req, res) => {
@@ -35,6 +36,13 @@ async function run() {
       res.send(result)
     })
 
+
+
+    app.get('/countries-tour', async(req, res) => {
+      const cursor = countriesTourCollection.find()
+      const result = await cursor.toArray()
+      res.send(result)
+    })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
