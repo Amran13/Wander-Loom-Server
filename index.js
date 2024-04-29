@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const express = require('express');
 const cors = require('cors');
 const app = express()
@@ -28,6 +28,7 @@ async function run() {
 
     const touristSpotsCollection = client.db("wanderLoomDB").collection("touristSpots")
     const countriesTourCollection = client.db("wanderLoomDB").collection("countriesTour")
+    const addTouristSpotCollection = client.db("wanderLoomDB").collection("addTouristSpot")
 
 
     app.get('/tourist-spots', async(req, res) => {
@@ -36,11 +37,46 @@ async function run() {
       res.send(result)
     })
 
+    app.get('/tourist-spots/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id : new ObjectId(id)}
+      const result = await touristSpotsCollection.findOne(query)
+      res.send(result)
+    })
+
 
 
     app.get('/countries-tour', async(req, res) => {
       const cursor = countriesTourCollection.find()
       const result = await cursor.toArray()
+      res.send(result)
+    })
+
+
+
+    app.get('/add-tourist-spot', async(req, res) => {
+      const cursor = addTouristSpotCollection.find()
+      const result = await cursor.toArray();
+      res.send(result)
+    })
+    
+    app.get('/add-tourist-spot/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id : new ObjectId(id)}
+      const result = await addTouristSpotCollection.findOne(query)
+      res.send(result)
+    })
+
+    app.post('/add-tourist-spot', async(req, res) => {
+      const body = req.body;
+      const result = await addTouristSpotCollection.insertOne(body)
+      res.send(result)
+    })
+
+    app.delete('/add-tourist-spot/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id : new ObjectId(id)}
+      const result = await addTouristSpotCollection.deleteOne(query)
       res.send(result)
     })
 
