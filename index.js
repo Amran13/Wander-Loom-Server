@@ -29,6 +29,7 @@ async function run() {
     const touristSpotsCollection = client.db("wanderLoomDB").collection("touristSpots")
     const countriesTourCollection = client.db("wanderLoomDB").collection("countriesTour")
     const addTouristSpotCollection = client.db("wanderLoomDB").collection("addTouristSpot")
+    const countryWiseCollection = client.db("wanderLoomDB").collection("countryWiseSpot")
 
 
     app.get('/tourist-spots', async(req, res) => {
@@ -45,10 +46,17 @@ async function run() {
     })
 
 
-
     app.get('/countries-tour', async(req, res) => {
       const cursor = countriesTourCollection.find()
       const result = await cursor.toArray()
+      res.send(result)
+    })
+
+    app.get('/countries-tour/:id', async(req, res)=> {
+      const id = req.params.id;
+      console.log(id)
+      const query = {_id : new ObjectId(id)}
+      const result = await countriesTourCollection.findOne(query)
       res.send(result)
     })
 
