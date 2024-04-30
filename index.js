@@ -60,8 +60,6 @@ async function run() {
       res.send(result)
     })
 
-
-
     app.get('/add-tourist-spot', async(req, res) => {
       const cursor = addTouristSpotCollection.find()
       const result = await cursor.toArray();
